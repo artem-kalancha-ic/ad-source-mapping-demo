@@ -1,0 +1,275 @@
+/* Colors */
+.wrapper {
+  --col-pms: #6C5CE7;
+  --col-status: #00B894;
+  --col-mapped: #0984E3;
+  --col-rule: #FD7943;
+  --col-ai: #00d4aa;
+  --col-cost: #ffd93d;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1600px;
+  gap: 0;
+}
+
+/* Explanation cards row */
+.cardsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 0.7fr;
+  gap: 14px;
+  margin-bottom: -200px;
+  position: relative;
+  z-index: 2;
+}
+
+.cardCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardColWide {
+  /* spans wider via grid-template-columns */
+}
+
+.card {
+  padding: 16px 14px;
+  border-radius: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  width: 100%;
+  flex: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cardIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cardLabel {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Connector stems */
+.stem {
+  width: 3px;
+  height: 232px;
+  position: relative;
+  z-index: 2;
+}
+
+.stem::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* Broken stems */
+.stemBroken {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.stemSeg1 {
+  width: 3px;
+  flex-shrink: 0;
+}
+
+.stemSeg2 {
+  height: 3px;
+  align-self: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stemSeg3 {
+  width: 3px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.stemSeg3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* PMS broken: 150px down, 100px right, 100px down */
+.stemBrokenPms { height: 250px; }
+.stemBrokenPms .stemSeg1 { height: 150px; }
+.stemBrokenPms .stemSeg2 { width: 100px; left: 50px; }
+.stemBrokenPms .stemSeg3 { height: 100px; left: 100px; }
+
+/* Status broken: 150px down, 50px right, 100px down */
+.stemBrokenStatus { height: 250px; }
+.stemBrokenStatus .stemSeg1 { height: 150px; }
+.stemBrokenStatus .stemSeg2 { width: 50px; left: 25px; }
+.stemBrokenStatus .stemSeg3 { height: 100px; left: 50px; }
+
+/* Mapped broken: 150px down, 50px left, 100px down */
+.stemBrokenMapped { height: 250px; }
+.stemBrokenMapped .stemSeg1 { height: 150px; }
+.stemBrokenMapped .stemSeg2 { width: 50px; left: -25px; }
+.stemBrokenMapped .stemSeg3 { height: 100px; left: -50px; }
+
+/* Forked stem (AI: SVG fork) */
+.stemFork {
+  width: 360px;
+  height: 250px;
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Card variants */
+.cardPms {
+  border-color: rgba(108, 92, 231, 0.35);
+  box-shadow: 0 2px 16px rgba(108, 92, 231, 0.15);
+}
+.cardPms:hover { box-shadow: 0 4px 24px rgba(108, 92, 231, 0.25); }
+.cardPms .cardIconWrap { background: rgba(108, 92, 231, 0.15); color: var(--col-pms); }
+.cardPms .cardLabel { color: var(--col-pms); }
+.cardPms + .stem { background: var(--col-pms); }
+.cardPms + .stem::after { background: var(--col-pms); }
+.cardPms + .stemBroken .stemSeg1 { background: var(--col-pms); }
+.cardPms + .stemBroken .stemSeg2 { background: var(--col-pms); }
+.cardPms + .stemBroken .stemSeg3 { background: var(--col-pms); }
+.cardPms + .stemBroken .stemSeg3::after { background: var(--col-pms); }
+
+.cardStatus {
+  border-color: rgba(0, 184, 148, 0.35);
+  box-shadow: 0 2px 16px rgba(0, 184, 148, 0.15);
+}
+.cardStatus:hover { box-shadow: 0 4px 24px rgba(0, 184, 148, 0.25); }
+.cardStatus .cardIconWrap { background: rgba(0, 184, 148, 0.15); color: var(--col-status); }
+.cardStatus .cardLabel { color: var(--col-status); }
+.cardStatus + .stem { background: var(--col-status); }
+.cardStatus + .stem::after { background: var(--col-status); }
+.cardStatus + .stemBroken .stemSeg1 { background: var(--col-status); }
+.cardStatus + .stemBroken .stemSeg2 { background: var(--col-status); }
+.cardStatus + .stemBroken .stemSeg3 { background: var(--col-status); }
+.cardStatus + .stemBroken .stemSeg3::after { background: var(--col-status); }
+
+.cardMapped {
+  border-color: rgba(9, 132, 227, 0.35);
+  box-shadow: 0 2px 16px rgba(9, 132, 227, 0.15);
+}
+.cardMapped:hover { box-shadow: 0 4px 24px rgba(9, 132, 227, 0.25); }
+.cardMapped .cardIconWrap { background: rgba(9, 132, 227, 0.15); color: var(--col-mapped); }
+.cardMapped .cardLabel { color: var(--col-mapped); }
+.cardMapped + .stem { background: var(--col-mapped); }
+.cardMapped + .stem::after { background: var(--col-mapped); }
+.cardMapped + .stemBroken .stemSeg1 { background: var(--col-mapped); }
+.cardMapped + .stemBroken .stemSeg2 { background: var(--col-mapped); }
+.cardMapped + .stemBroken .stemSeg3 { background: var(--col-mapped); }
+.cardMapped + .stemBroken .stemSeg3::after { background: var(--col-mapped); }
+
+.cardAi {
+  border-color: rgba(0, 212, 170, 0.35);
+  box-shadow: 0 2px 16px rgba(0, 212, 170, 0.15);
+}
+.cardAi:hover { box-shadow: 0 4px 24px rgba(0, 212, 170, 0.25); }
+.cardAi .cardIconWrap { background: rgba(0, 212, 170, 0.15); color: var(--col-ai); }
+.cardAi .cardLabel { color: var(--col-ai); }
+.cardAi + .stem { background: var(--col-ai); }
+.cardAi + .stem::after { background: var(--col-ai); }
+
+/* Action card */
+.cardAction {
+  border-color: rgba(139, 143, 163, 0.35);
+  box-shadow: 0 2px 16px rgba(139, 143, 163, 0.1);
+}
+.cardAction:hover { box-shadow: 0 4px 24px rgba(139, 143, 163, 0.2); }
+.cardAction .cardIconWrap { background: rgba(139, 143, 163, 0.15); color: var(--color-text-secondary); }
+.cardAction .cardLabel { color: var(--color-text-secondary); }
+.cardAction + .stem { background: var(--color-text-muted); }
+.cardAction + .stem::after { background: var(--color-text-muted); }
+
+/* Status badges */
+.statusList {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  background: color-mix(in srgb, var(--badge-color) 15%, transparent);
+  color: var(--badge-color);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 25%, transparent);
+}
+
+/* Screenshot image */
+.imageWrap {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 600px;
+  z-index: 1;
+}
+
+.imageWrap img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+}
+
+/* Bottom gradient fade matching background */
+.imageFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+}

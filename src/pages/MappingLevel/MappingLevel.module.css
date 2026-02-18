@@ -1,0 +1,353 @@
+/* Colors */
+.hierarchy {
+  --global: #6c63ff;
+  --global-glow: rgba(108, 99, 255, 0.25);
+  --company: #00d4aa;
+  --company-glow: rgba(0, 212, 170, 0.25);
+  --property: #FD7943;
+  --property-glow: rgba(253, 121, 67, 0.25);
+  --connector: #2a2d3e;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Level labels */
+.levelTag {
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+.globalTag {
+  background: var(--global-glow);
+  color: var(--global);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.companyTag {
+  background: var(--company-glow);
+  color: var(--company);
+  border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+.propertyTag {
+  background: var(--property-glow);
+  color: var(--property);
+  border: 1px solid rgba(253, 121, 67, 0.3);
+}
+
+/* Global row */
+.globalRow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.globalCard {
+  padding: 32px 40px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid rgba(108, 99, 255, 0.35);
+  box-shadow: 0 4px 24px var(--global-glow), inset 0 1px 0 rgba(108, 99, 255, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.globalCard:hover {
+  box-shadow: 0 8px 32px var(--global-glow);
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.globalCard .cardIcon {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--global);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.globalCard .cardTitle {
+  color: var(--global);
+}
+
+.cardSub {
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.cardChips {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.globalChip {
+  background: rgba(108, 99, 255, 0.12);
+  color: rgba(108, 99, 255, 0.8);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+/* Connectors */
+.connectorRow {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 40px;
+  height: 40px;
+  position: relative;
+}
+
+.connectorLine {
+  width: 1px;
+  height: 100%;
+  background: var(--connector);
+  position: relative;
+}
+
+.connectorLine::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--connector);
+}
+
+/* Company row */
+.companyRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.companyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.companyCard {
+  padding: 24px 20px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  border: 1px solid rgba(0, 212, 170, 0.35);
+  box-shadow: 0 4px 24px var(--company-glow), inset 0 1px 0 rgba(0, 212, 170, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.companyCard:hover {
+  box-shadow: 0 8px 32px var(--company-glow);
+  transform: translateY(-2px);
+}
+
+.companyCard .cardIcon {
+  background: rgba(0, 212, 170, 0.15);
+  color: var(--company);
+}
+
+.companyCard .cardTitle {
+  color: var(--company);
+  font-size: 18px;
+}
+
+.companyCardHighlight {
+  border-color: var(--company);
+  box-shadow: 0 0 0 1px var(--company), 0 4px 24px var(--company-glow);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface),
+    rgba(0, 212, 170, 0.06)
+  );
+}
+
+.companyChip {
+  background: rgba(0, 212, 170, 0.12);
+  color: rgba(0, 212, 170, 0.8);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+/* Property section */
+.propertyRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.propertyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.propertyColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.propertyConnector {
+  display: flex;
+  justify-content: center;
+  height: 28px;
+}
+
+.propertyConnector .connectorLine {
+  background: rgba(253, 121, 67, 0.25);
+}
+
+.propertyConnector .connectorLine::after {
+  background: rgba(253, 121, 67, 0.4);
+}
+
+.propertyCard {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--color-surface);
+  border: 1px solid rgba(253, 121, 67, 0.3);
+  box-shadow: 0 2px 12px var(--property-glow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.propertyCardHighlight {
+  border-color: var(--property);
+  box-shadow: 0 0 0 1px var(--property), 0 4px 20px var(--property-glow);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface),
+    rgba(253, 121, 67, 0.06)
+  );
+}
+
+.propertyCard:hover {
+  box-shadow: 0 4px 20px var(--property-glow);
+  transform: translateY(-1px);
+}
+
+.propertyCard .cardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(253, 121, 67, 0.15);
+  color: var(--property);
+}
+
+.propertyCard .cardTitle {
+  color: var(--property);
+  font-size: 15px;
+}
+
+.propertyCard .cardSub {
+  font-size: 13px;
+}
+
+/* Etc card (dashed) */
+.etcCard {
+  border-style: dashed;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etcCard .cardTitle {
+  color: var(--color-text-muted) !important;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.etcCard .cardSub {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.etcCard.companyCard {
+  border-color: rgba(0, 212, 170, 0.25);
+  box-shadow: none;
+}
+
+.etcCard.companyCard:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.etcCard.propertyCard {
+  border-color: rgba(253, 121, 67, 0.2);
+  box-shadow: none;
+  padding: 14px 16px;
+}
+
+.etcCard.propertyCard:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* Company connectors to properties */
+.companyConnectors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  height: 32px;
+}
+
+.companyConnectorCol {
+  display: flex;
+  justify-content: center;
+}
+
+.companyConnectorCol .connectorLine {
+  background: rgba(253, 121, 67, 0.25);
+}
+
+.companyConnectorCol .connectorLine::after {
+  background: rgba(253, 121, 67, 0.4);
+}

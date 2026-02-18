@@ -1,0 +1,419 @@
+/* Colors */
+.diagram {
+  --pms: #6C5CE7;
+  --pms-glow: rgba(108, 92, 231, 0.25);
+  --ga: #00B894;
+  --ga-glow: rgba(0, 184, 148, 0.25);
+  --ai: #FD7943;
+  --ai-glow: rgba(253, 121, 67, 0.25);
+  --online: #0984E3;
+  --online-glow: rgba(9, 132, 227, 0.25);
+  --arrow-color: #4A4F65;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Section header */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sectionTag {
+  font-family: 'Inter', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.pmsTag {
+  background: var(--pms-glow);
+  color: var(--pms);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.onlineTag {
+  background: var(--online-glow);
+  color: var(--online);
+  border: 1px solid rgba(9, 132, 227, 0.3);
+}
+
+.sectionLine {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Flow wrapper */
+.flowWrapper {
+  position: relative;
+  padding: 44px 40px;
+  border-radius: 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.flowRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.flowRowCompact {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.braceLabel {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: 3px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* Nodes */
+.node {
+  position: relative;
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  min-width: 160px;
+  max-width: 220px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nodeIconWrap {
+  margin-bottom: 14px;
+  font-size: 36px;
+}
+
+.nodeLabel {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.nodeSub {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Node variants */
+.pms {
+  border-color: rgba(108, 92, 231, 0.35);
+  box-shadow: 0 4px 24px var(--pms-glow), inset 0 1px 0 rgba(108, 92, 231, 0.15);
+}
+.pms:hover { box-shadow: 0 8px 32px var(--pms-glow); }
+.pms .nodeLabel { color: var(--pms); }
+.pms .nodeIconWrap { color: var(--pms); }
+
+.ga {
+  border-color: rgba(0, 184, 148, 0.35);
+  box-shadow: 0 4px 24px var(--ga-glow), inset 0 1px 0 rgba(0, 184, 148, 0.15);
+}
+.ga:hover { box-shadow: 0 8px 32px var(--ga-glow); }
+.ga .nodeLabel { color: var(--ga); }
+.ga .nodeIconWrap { color: var(--ga); }
+
+.ai {
+  border-color: rgba(253, 121, 67, 0.35);
+  box-shadow: 0 4px 24px var(--ai-glow), inset 0 1px 0 rgba(253, 121, 67, 0.15);
+}
+.ai:hover { box-shadow: 0 8px 32px var(--ai-glow); }
+.ai .nodeLabel { color: var(--ai); }
+.ai .nodeIconWrap { color: var(--ai); }
+
+.online {
+  border-color: rgba(9, 132, 227, 0.35);
+  box-shadow: 0 4px 24px var(--online-glow), inset 0 1px 0 rgba(9, 132, 227, 0.15);
+}
+.online:hover { box-shadow: 0 8px 32px var(--online-glow); }
+.online .nodeLabel { color: var(--online); }
+.online .nodeIconWrap { color: var(--online); }
+
+/* Chips */
+.chipList {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 5px;
+  letter-spacing: 0.3px;
+}
+
+.pmsChip {
+  background: rgba(108, 92, 231, 0.12);
+  color: rgba(108, 92, 231, 0.8);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.gaChip {
+  background: rgba(0, 184, 148, 0.12);
+  color: rgba(0, 184, 148, 0.8);
+  border: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.aiChip {
+  background: rgba(253, 121, 67, 0.12);
+  color: rgba(253, 121, 67, 0.8);
+  border: 1px solid rgba(253, 121, 67, 0.2);
+}
+
+.onlineChip {
+  background: rgba(9, 132, 227, 0.12);
+  color: rgba(9, 132, 227, 0.8);
+  border: 1px solid rgba(9, 132, 227, 0.2);
+}
+
+/* Badges */
+.badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.badgeStep1 {
+  background: rgba(108, 92, 231, 0.2);
+  color: var(--pms);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+}
+
+.badgeStep2 {
+  background: rgba(0, 184, 148, 0.2);
+  color: var(--ga);
+  border: 1px solid rgba(0, 184, 148, 0.3);
+}
+
+.badgeDirect {
+  background: rgba(9, 132, 227, 0.2);
+  color: var(--online);
+  border: 1px solid rgba(9, 132, 227, 0.3);
+}
+
+/* Arrows */
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.arrowLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f0f1f5;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  background: var(--color-surface-hover);
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Arrow line */
+.arrowLine {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  display: flex;
+  align-items: center;
+  transform-origin: left center;
+}
+
+.arrowLine::before {
+  content: '';
+  flex: 1;
+  height: 3px;
+  background: var(--arrow-color);
+}
+
+.arrowLine::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid var(--arrow-color);
+  flex-shrink: 0;
+}
+
+/* Arrow variants */
+.pmsArrow .arrowLabel {
+  border-color: rgba(108, 92, 231, 0.4);
+}
+.pmsArrow .arrowLine::before {
+  background: linear-gradient(90deg, var(--pms), var(--ga));
+}
+.pmsArrow .arrowLine::after {
+  border-left-color: var(--ga);
+}
+
+.gaArrow .arrowLabel {
+  border-color: rgba(0, 184, 148, 0.4);
+}
+.gaArrow .arrowLine::before {
+  background: linear-gradient(90deg, var(--ga), var(--ai));
+}
+.gaArrow .arrowLine::after {
+  border-left-color: var(--ai);
+}
+
+.onlineArrow .arrowLabel {
+  border-color: rgba(9, 132, 227, 0.4);
+}
+.onlineArrow .arrowLine::before {
+  background: linear-gradient(90deg, var(--online), var(--ai));
+}
+.onlineArrow .arrowLine::after {
+  border-left-color: var(--ai);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.dividerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+/* Example tables */
+.exampleSection {
+  margin-top: 24px;
+}
+
+.exampleLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: var(--color-surface-hover);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.table tbody tr:hover {
+  background: var(--color-surface-hover);
+}
+
+.cellValue {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+/* Table accent colors */
+.pmsTable td:nth-child(1) .cellValue {
+  color: var(--pms);
+}
+
+.pmsTable td:nth-child(2) .cellValue {
+  color: var(--ga);
+}
+
+.pmsTable td:nth-child(3) .cellValue,
+.pmsTable td:nth-child(4) .cellValue {
+  color: var(--ai);
+}
+
+.onlineTable td:nth-child(1) .cellValue,
+.onlineTable td:nth-child(2) .cellValue,
+.onlineTable td:nth-child(3) .cellValue {
+  color: var(--ga);
+}
+
+.onlineTable td:nth-child(4) .cellValue,
+.onlineTable td:nth-child(5) .cellValue {
+  color: var(--ai);
+}

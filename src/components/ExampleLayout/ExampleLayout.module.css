@@ -1,0 +1,276 @@
+/* Layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Explanation card */
+.explanationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.explanationIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(108, 99, 255, 0.12);
+  color: #6c63ff;
+  flex-shrink: 0;
+}
+
+.explanationText {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* Bottom section */
+.bottomSection {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Action area */
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.stepIndicator {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.actionDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-hover);
+  border-left: 2px solid var(--color-primary);
+}
+
+.descriptionLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.descriptionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  min-width: 52px;
+}
+
+.descriptionValue {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Action button */
+.actionButton {
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 150ms ease, box-shadow 150ms ease;
+  width: 100%;
+}
+
+.actionPrimary {
+  background: linear-gradient(135deg, #6c63ff, #8b83ff);
+  color: white;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+}
+.actionPrimary:hover {
+  box-shadow: 0 6px 24px rgba(108, 99, 255, 0.4);
+}
+
+.actionDanger {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+}
+.actionDanger:hover {
+  box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
+}
+
+.actionReset {
+  background: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+.actionReset:hover {
+  background: var(--color-surface-active);
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  padding-left: 32px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 11px;
+  top: 32px;
+  bottom: 32px;
+  width: 2px;
+  background: var(--color-border);
+}
+
+/* Checkpoint */
+.checkpoint {
+  position: relative;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkpointHighlight {
+  border-color: var(--level-color);
+}
+
+.checkpointIgnored {
+  pointer-events: none;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -26px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--color-bg);
+  z-index: 1;
+}
+
+.checkpointContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checkpointHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.checkpointIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.checkpointLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.checkpointLabel {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.checkpointName {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: fit-content;
+}
+
+/* Status badge */
+.statusBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  background: color-mix(in srgb, var(--badge-color) 15%, transparent);
+  color: var(--badge-color);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 25%, transparent);
+  white-space: nowrap;
+}
+
+/* Mapping row */
+.mappingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--color-surface-hover);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.mappingMuted {
+  opacity: 0.4;
+}
+
+.mappingFrom {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.mappingArrow {
+  color: var(--color-text-muted);
+}
+
+.mappingTo {
+  color: var(--color-text-secondary);
+}
