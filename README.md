@@ -1,16 +1,87 @@
-# React + Vite
+# Ad Source Mapping Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive walkthrough demonstrating how ad source mappings cascade across global, company, and property levels in SDM Apartment Intelligence.
 
-Currently, two official plugins are available:
+## What This Project Does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This demo visualizes the two core mapping paths used to classify advertising data:
 
-## React Compiler
+- **PMS Source Mapping** — A two-step flow: PMS Source (Knock, Yardi, Entrata) → Google Analytics (source/medium) → AI Source + Cost Group
+- **Online Mapping** — A single-step flow: Google Analytics (source/medium/campaign) → AI Source + Cost Group
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Mappings are organized in a three-level hierarchy:
 
-## Expanding the ESLint configuration
+| Level | Description |
+|-------|-------------|
+| **Global** | Default rules that apply to all companies and properties |
+| **Company** | Overrides for a specific company (e.g. RADCO) |
+| **Property** | Most specific overrides for an individual property (e.g. The Ariel) |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The demo includes four interactive examples that show how creating or deleting mappings at each level affects inheritance across the hierarchy.
+
+## Tech Stack
+
+- React 19 + React Router 7
+- Framer Motion (animations)
+- Lucide React (icons)
+- Vite (build tool)
+- CSS Modules
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- npm (comes with Node.js)
+
+### Install & Run
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+Then open the URL shown in the terminal (usually `http://localhost:5173`).
+
+### Other Commands
+
+```bash
+# Build for production
+npm run build
+
+# Preview the production build locally
+npm run preview
+
+# Run linting
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── main.jsx                        # Entry point
+├── App.jsx                         # Root component
+├── routes/AppRouter.jsx            # Route definitions
+├── components/
+│   ├── Layout/                     # Shell with sidebar + content area
+│   ├── Sidebar/                    # Navigation sidebar
+│   ├── PageWrapper/                # Reusable page header
+│   └── ExampleLayout/              # Step-through example component
+├── pages/
+│   ├── Intro/                      # Landing page
+│   ├── Overview/                   # Data flow architecture diagram
+│   ├── MappingLevel/               # Hierarchy visualization
+│   ├── MappingTable/               # Column reference guide
+│   └── Examples/
+│       ├── CreateGlobalLevelMapping/
+│       ├── CreateCompanyLevelMapping/
+│       ├── CreatePropertyLevelMapping/
+│       └── DeletePropertyLevelMapping/
+└── styles/
+    ├── variables.css               # Design tokens
+    └── global.css                  # Global styles
+```
