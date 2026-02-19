@@ -103,20 +103,20 @@ export default function MappingTable() {
                   <div className={styles.stemSeg3} />
                 </div>
               ) : col.variant === 'cardAi' ? (
-                <svg className={styles.stemFork} viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className={styles.stemFork} viewBox="0 0 360 230" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Trunk */}
                   <line x1="180" y1="0" x2="180" y2="100" stroke="var(--col-ai)" strokeWidth="3" />
                   {/* Left branch */}
-                  <line x1="180" y1="100" x2="0" y2="100" stroke="var(--col-ai)" strokeWidth="3" />
-                  <line x1="0" y1="100" x2="0" y2="250" stroke="var(--col-ai)" strokeWidth="3" />
-                  <circle cx="0" cy="250" r="4.5" fill="var(--col-ai)" />
+                  <line x1="180" y1="100" x2="20" y2="100" stroke="var(--col-ai)" strokeWidth="3" />
+                  <line x1="20" y1="100" x2="20" y2="210" stroke="var(--col-ai)" strokeWidth="3" />
+                  <circle cx="20" cy="210" r="4.5" fill="var(--col-ai)" />
                   {/* Center branch */}
-                  <line x1="180" y1="100" x2="180" y2="250" stroke="var(--col-ai)" strokeWidth="3" />
-                  <circle cx="180" cy="250" r="4.5" fill="var(--col-ai)" />
+                  <line x1="180" y1="100" x2="180" y2="210" stroke="var(--col-ai)" strokeWidth="3" />
+                  <circle cx="180" cy="210" r="4.5" fill="var(--col-ai)" />
                   {/* Right branch */}
                   <line x1="180" y1="100" x2="360" y2="100" stroke="var(--col-ai)" strokeWidth="3" />
-                  <line x1="360" y1="100" x2="360" y2="250" stroke="var(--col-ai)" strokeWidth="3" />
-                  <circle cx="360" cy="250" r="4.5" fill="var(--col-ai)" />
+                  <line x1="360" y1="100" x2="360" y2="210" stroke="var(--col-ai)" strokeWidth="3" />
+                  <circle cx="360" cy="210" r="4.5" fill="var(--col-ai)" />
                 </svg>
               ) : (
                 <div className={styles.stem} />

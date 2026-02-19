@@ -9,8 +9,7 @@
 
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 1600px;
+  width: 1100px;
   gap: 0;
 }
 
@@ -41,7 +40,10 @@
   border: 1px solid var(--color-border);
   text-align: center;
   width: 100%;
-  flex: 1;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -82,7 +84,7 @@
 /* Connector stems */
 .stem {
   width: 3px;
-  height: 232px;
+  height: 192px;
   position: relative;
   z-index: 2;
 }
@@ -136,28 +138,28 @@
   border-radius: 50%;
 }
 
-/* PMS broken: 150px down, 100px right, 100px down */
-.stemBrokenPms { height: 250px; }
+/* PMS broken: 150px down, 100px right, 60px down */
+.stemBrokenPms { height: 210px; }
 .stemBrokenPms .stemSeg1 { height: 150px; }
 .stemBrokenPms .stemSeg2 { width: 100px; left: 50px; }
-.stemBrokenPms .stemSeg3 { height: 100px; left: 100px; }
+.stemBrokenPms .stemSeg3 { height: 40px; left: 100px; }
 
-/* Status broken: 150px down, 50px right, 100px down */
-.stemBrokenStatus { height: 250px; }
+/* Status broken: 150px down, 50px right, 60px down */
+.stemBrokenStatus { height: 210px; }
 .stemBrokenStatus .stemSeg1 { height: 150px; }
 .stemBrokenStatus .stemSeg2 { width: 50px; left: 25px; }
-.stemBrokenStatus .stemSeg3 { height: 100px; left: 50px; }
+.stemBrokenStatus .stemSeg3 { height: 40px; left: 50px; }
 
-/* Mapped broken: 150px down, 50px left, 100px down */
-.stemBrokenMapped { height: 250px; }
+/* Mapped broken: 150px down, 50px left, 60px down */
+.stemBrokenMapped { height: 210px; }
 .stemBrokenMapped .stemSeg1 { height: 150px; }
 .stemBrokenMapped .stemSeg2 { width: 50px; left: -25px; }
-.stemBrokenMapped .stemSeg3 { height: 100px; left: -50px; }
+.stemBrokenMapped .stemSeg3 { height: 40px; left: -50px; }
 
 /* Forked stem (AI: SVG fork) */
 .stemFork {
   width: 360px;
-  height: 250px;
+  height: 210px;
   z-index: 2;
   overflow: visible;
 }

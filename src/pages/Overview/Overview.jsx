@@ -16,7 +16,7 @@ function FlowNode({ icon: Icon, label, sub, chips, badge, variant, delay = 0 }) 
         <span className={`${styles.badge} ${styles[badge.variant]}`}>{badge.label}</span>
       )}
       <div className={styles.nodeIconWrap}>
-        <Icon size={36} />
+        <Icon size={28} />
       </div>
       <div className={styles.nodeLabel}>{label}</div>
       {sub && <div className={styles.nodeSub}>{sub}</div>}
